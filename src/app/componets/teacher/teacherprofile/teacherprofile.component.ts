@@ -3,16 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 @Component({
-  selector: 'app-grid-teachers',
-  templateUrl: './grid-teachers.component.html',
-  styleUrls: ['./grid-teachers.component.css']
+  selector: 'app-teacherprofile',
+  templateUrl: './teacherprofile.component.html',
+  styleUrls: ['./teacherprofile.component.css']
 })
-export class GridTeachersComponent implements OnInit {
-  profesorBuscado ;
-  id="";
+export class TeacherprofileComponent implements OnInit {
 
-  //private serviceurl="http://127.0.0.1:8000/";
-  pictures = [
+  profesorBuscado ;
+
+  private serviceurl="http://127.0.0.1:8000/";
+  pictures :any= [
     {
       id: 1,
       title: 'A natural view',
@@ -49,23 +49,16 @@ export class GridTeachersComponent implements OnInit {
   private sub: any;
   getData(){
    
-    //return this.http.get(this.serviceurl).subscribe(data => {
+    return this.http.get(this.serviceurl).subscribe(data => {
      // console.log(data);
-  //  });
+    });
   
-  }
-  click(id){
-    this.id=id;
-    ///redireccion a pantalla de selena
-  }
-
+}
   ngOnInit() {
       this.sub = this.route.params.subscribe(params => {
-      this.profesorBuscado = params['profesor']; 
+      this.profesorBuscado = params['profesor']; // (+) converts string 'id' to a number
      // this.pictures=this.getData();
       // In a real app: dispatch action to load the details here.
    });
   }
-
-
 }

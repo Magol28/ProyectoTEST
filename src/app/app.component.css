@@ -1,9 +1,11 @@
+
 #menu ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
+    padding: 2px;
+    overflow: auto;
     background-color: #333;
+
 }
 
 #menu li {
@@ -24,4 +26,13 @@
 
 #menu .active {
     background-color: gray;
+}
+
+ #menu #quit {
+    float: center-right;
+}
+#menu input
+{
+    float: right;
+    font-size: 30px; ;
 }

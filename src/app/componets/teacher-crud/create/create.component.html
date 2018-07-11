@@ -1,0 +1,60 @@
+
+<div class="center-container">
+  <div class="main">
+    <h1 class="w3layouts_head">Registro para un nuevo Profesor</h1>
+      <div class="w3layouts_main_grid">
+        <div  class="w3_form_post">
+          <div class="w3_agileits_main_grid w3l_main_grid">
+            <span class="agileits_grid">
+              <label>Nombre </label>
+              <input type="text" name="Task" placeholder=" Nombre" required="">
+            </span>
+          </div>
+          <div class="w3_agileits_main_grid w3l_main_grid">
+            <span class="agileits_grid">
+              <label>Apellido </label>
+              <input type="text" name="Task" placeholder=" Apellido" required="">
+            </span>
+          </div>
+          <div class="w3_agileits_main_grid w3l_main_grid">
+            <span class="agileits_grid">
+              <label>Email </label>
+              <input type="text" name="Task" placeholder=" Email" >
+            </span>
+          </div>
+          <div class="w3_agileits_main_grid w3l_main_grid">
+            <span class="agileits_grid">
+              <label>Phone Number </label>
+              <input type="text" name="Task" placeholder="Phone Number" required="">
+              </span>
+          </div>
+          
+          <div class="w3_agileits_main_grid w3l_main_grid">
+              
+
+            
+            <label>Por favor elija las materias del profesor</label>
+              <form [formGroup]="form" (ngSubmit)="submit()">
+                <label formArrayName="orders" *ngFor="let order of form.controls.orders.controls; let i = index">
+                  <input type="checkbox" id="a-option" name="selector1"[formControlName]="i">
+                  <label>{{orders[i].name}}</label>
+                  <p>
+                </label>
+              
+                <div *ngIf="!form.valid">Debes elejir aun que sea una</div>
+                <br>
+                
+              </form>
+        
+          </div>
+        
+        
+          <div class="clear"></div>
+        </div>
+        <div class="w3_main_grid">
+          <div class="w3_main_grid_right">
+            <input  type="submit" [disabled]="!form.valid"value="Submit">
+          </div>
+        </div>
+      </div>
+    </div>
