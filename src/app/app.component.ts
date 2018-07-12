@@ -11,6 +11,8 @@ export class AppComponent {
   constructor(private router: Router){}
   onKey(event: any) { // without type info
     let profesor=event.target.value;
+
     this.router.navigate(['/Teacher', profesor]);
+    
   }
 }

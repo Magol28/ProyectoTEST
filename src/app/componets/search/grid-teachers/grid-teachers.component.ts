@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
+import { Router } from '@angular/router';
+import { Http, Response } from '@angular/http';
+import 'rxjs/add/operator/map';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-grid-teachers',
   templateUrl: './grid-teachers.component.html',
@@ -10,62 +16,58 @@ import { HttpClient } from '@angular/common/http';
 export class GridTeachersComponent implements OnInit {
   profesorBuscado ;
   id="";
+  img='https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg';
+  private serviceurl="http://10.9.102.146:2096/profeshor/";
+  prueba:any;
+  pictures 
+  constructor(private route: ActivatedRoute,private http:HttpClient,private router: Router) {  }
 
-  //private serviceurl="http://127.0.0.1:8000/";
-  pictures = [
-    {
-      id: 1,
-      title: 'A natural view',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg'
-    },
-    {
-      id: 2,
-      title: 'Newspaper',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/LTLE4QGRVQ.jpg'
-    },
-    {
-      id: 3,
-      title: 'Favourite pizza',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg'
-    },
-    {
-      id: 4,
-      title: 'Abstract design',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/U9PP3KXXY2.jpg'
-    },
-    {
-      id: 5,
-      title: 'Tech',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/NO9CN3QYR3.jpg'
-    },
-    {
-      id: 6,
-      title: 'Nightlife',
-      img: 'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/X1UK6NLGRU.jpg'
-    },
-];
-  constructor(private route: ActivatedRoute,private http:HttpClient) {  }
+   sub;
+   getData (name:string):Observable<any>
+   {
 
-  private sub: any;
-  getData(){
-   
-    //return this.http.get(this.serviceurl).subscribe(data => {
-     // console.log(data);
-  //  });
-  
-  }
-  click(id){
+     var ordeJson = this.http.get('http://10.9.102.146:2096/profeshor/'+name).map(
+
+          
+       (res: Response) => res     
+       
+    
+      )
+       .catch(error => {
+         return Observable.throw(error.json)
+       });
+ 
+ 
+     return ordeJson;
+   }
+  click(id,name){
     this.id=id;
-    ///redireccion a pantalla de selena
+    console.log(id)
+    console.log(name)
+    this.router.navigate(['/Subjects', this.id,name]);
   }
 
   ngOnInit() {
-      this.sub = this.route.params.subscribe(params => {
-      this.profesorBuscado = params['profesor']; 
-     // this.pictures=this.getData();
-      // In a real app: dispatch action to load the details here.
-   });
+    
+    this.sub = this.route.params.subscribe(params => {
+      this.profesorBuscado = params['profesor']; })
+  
+      this.getData( this.profesorBuscado).subscribe(
+      
+        data=>{
+         this.pictures= data.listaProfesores;          
+         
+        },
+        err=>{
+          console.log(err);
+          
+        }
+        
+      );
+     
+  
   }
+
 
 
 }

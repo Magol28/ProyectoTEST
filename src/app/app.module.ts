@@ -4,7 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule  } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componets/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
@@ -13,7 +14,6 @@ import { SearchComponent } from './componets/search/search.component';
 import { CommentariesComponent } from './componets/commentaries/commentaries.component';
 import { AppRoutingModule, routingComponents } from './Router.config';
 import { SliderComponent } from './componets/home/slider/slider.component';
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxCarouselModule } from 'ngx-carousel';
 import { PopularComponent } from './componets/home/popular/popular.component';
@@ -25,6 +25,8 @@ import { TeacherCrudComponent } from './componets/teacher-crud/teacher-crud.comp
 import { CreateComponent } from './componets/teacher-crud/create/create.component';
 import { AutenticationComponent } from './componets/autentication/autentication.component';
 import { LoginComponent } from './componets/login/login.component';
+import { SubjectsComponent } from './componets/subjects/subjects.component';
+import { CreateSComponent } from './componets/Subjects/create-s/create-s.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,9 +44,12 @@ import { LoginComponent } from './componets/login/login.component';
     TeacherCrudComponent,
     CreateComponent,
     AutenticationComponent,
-    LoginComponent
+    LoginComponent,
+    SubjectsComponent,
+    CreateSComponent
   ],
   imports: [
+    
     BrowserModule,HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

@@ -6,37 +6,28 @@
         <div  class="w3_form_post">
           <div class="w3_agileits_main_grid w3l_main_grid">
             <span class="agileits_grid">
+                <p>{{values}}</p>
+              
               <label>Nombre </label>
-              <input type="text" name="Task" placeholder=" Nombre" required="">
+              <input type="text" name="Task" placeholder=" Nombre" required="" (keyup)="name($event)">
             </span>
           </div>
           <div class="w3_agileits_main_grid w3l_main_grid">
             <span class="agileits_grid">
-              <label>Apellido </label>
-              <input type="text" name="Task" placeholder=" Apellido" required="">
+              <label>Departamento </label>
+              <input type="text" name="Task" placeholder=" Departamento" required="" (keyup)="department($event)">
             </span>
-          </div>
-          <div class="w3_agileits_main_grid w3l_main_grid">
-            <span class="agileits_grid">
-              <label>Email </label>
-              <input type="text" name="Task" placeholder=" Email" >
-            </span>
-          </div>
-          <div class="w3_agileits_main_grid w3l_main_grid">
-            <span class="agileits_grid">
-              <label>Phone Number </label>
-              <input type="text" name="Task" placeholder="Phone Number" required="">
-              </span>
           </div>
           
           <div class="w3_agileits_main_grid w3l_main_grid">
               
 
-            
-            <label>Por favor elija las materias del profesor</label>
+   <!--         
+         
+ <label>Por favor elija las materias del profesor</label>
               <form [formGroup]="form" (ngSubmit)="submit()">
                 <label formArrayName="orders" *ngFor="let order of form.controls.orders.controls; let i = index">
-                  <input type="checkbox" id="a-option" name="selector1"[formControlName]="i">
+                  <input type="checkbox" id="a-option" name="selector1"[formControlName]="i" (change)="subjects($event,i)"> 
                   <label>{{orders[i].name}}</label>
                   <p>
                 </label>
@@ -45,16 +36,21 @@
                 <br>
                 
               </form>
-        
+            -->
           </div>
-        
-        
+          <input 
+          style="display: none" 
+          type="file" (change)="onFileChanged($event)" 
+          #fileInput>
+        <button (click)="fileInput.click()">Selecionar imagen </button>
           <div class="clear"></div>
         </div>
         <div class="w3_main_grid">
           <div class="w3_main_grid_right">
-            <input  type="submit" [disabled]="!form.valid"value="Submit">
+            <input  type="submit" value="Submit" (click)="onKey($event)">
           </div>
         </div>
       </div>
     </div>
+
+ 

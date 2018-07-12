@@ -1,14 +1,21 @@
 
-<mat-form-field class="search-form">
-  <input matInput placeholder="Search Picture" type="text">
-</mat-form-field>
-<br>
 
 <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
   <mat-card class="card-picture" *ngFor="let picture of pictures">
     <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-      <span fxFlex="80%">{{picture.title}}</span>
+      <span fxFlex="80%">Materia:{{picture.nombre}}</span>
     </mat-card-title>
-    <img mat-card-image [src]="picture.img">
+    <img mat-card-image [src]="img">
+    
+    <label>Departamento: {{picture.departamento}}</label>
   </mat-card>
+</div>
+
+
+<div>
+
+  <div class="enter">
+  
+    <input type="submit" value="Agregar nueva materia" (click)="click()">
+    </div>
 </div>
