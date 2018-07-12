@@ -8,7 +8,7 @@ import {CreateComponent} from './componets/teacher-crud/create/create.component'
 import { AutenticationComponent } from './componets/autentication/autentication.component';
 import { LoginComponent } from './componets/login/login.component';
 import { TeacherprofileComponent } from './componets/teacher/teacherprofile/teacherprofile.component';
-import { CreateSComponent } from './componets/Subjects/create-s/create-s.component';
+import { CreateSComponent } from './componets/Subjects/createsu/create-s.component';
 import { ProfileTeacherComponent } from './componets/search/profile-teacher/profile-teacher.component';
 
 

@@ -26,7 +26,7 @@ import { CreateComponent } from './componets/teacher-crud/create/create.componen
 import { AutenticationComponent } from './componets/autentication/autentication.component';
 import { LoginComponent } from './componets/login/login.component';
 import { SubjectsComponent } from './componets/subjects/subjects.component';
-import { CreateSComponent } from './componets/Subjects/create-s/create-s.component';
+import { CreateSComponent } from './componets/Subjects/createsu/create-s.component';
 @NgModule({
   declarations: [
     AppComponent,
