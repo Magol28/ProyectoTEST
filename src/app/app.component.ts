@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   values;
   constructor(private router: Router){}
-  onKey(event: any) { // without type info
+  onKey(event: any) { 
     let profesor=event.target.value;
 
     this.router.navigate(['/Teacher', profesor]);

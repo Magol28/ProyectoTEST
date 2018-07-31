@@ -1,3 +1,5 @@
+
+
 <ngx-carousel class="banner" [inputs]="carouselBanner" (carouselLoad)="carouselBannerLoad()">
   <ngx-item NgxCarouselItem *ngFor="let tile of carouselBannerItems; let i = index;">
       <div class="bannerStyle" [style.background]="'url(' + tile + ')'">

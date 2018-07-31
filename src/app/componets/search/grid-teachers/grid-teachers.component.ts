@@ -16,7 +16,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class GridTeachersComponent implements OnInit {
   profesorBuscado ;
   id="";
-  img='https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg';
+  img='http://media.caferz.com/thumbnails/users/default-avatar.png';
   private serviceurl="http://10.9.102.146:2096/profeshor/";
   prueba:any;
   pictures 
@@ -40,21 +40,22 @@ export class GridTeachersComponent implements OnInit {
  
      return ordeJson;
    }
-  click(id,name){
+  click(id,name,department){
     this.id=id;
     console.log(id)
     console.log(name)
-    this.router.navigate(['/Subjects', this.id,name]);
+    this.router.navigate(['/Subjects', this.id,name,department]);
   }
 
   ngOnInit() {
     
     this.sub = this.route.params.subscribe(params => {
-      this.profesorBuscado = params['profesor']; })
-  
+      this.profesorBuscado = params['profesor']; 
+    
       this.getData( this.profesorBuscado).subscribe(
       
         data=>{
+          this.pictures=null;
          this.pictures= data.listaProfesores;          
          
         },
@@ -64,6 +65,9 @@ export class GridTeachersComponent implements OnInit {
         }
         
       );
+    })
+  
+    
      
   
   }

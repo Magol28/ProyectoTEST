@@ -1,5 +1,5 @@
 .tile {
-    min-height: 200px;
+    min-height: 250px;
     background-color: rgb(190, 108, 108);
     background-size: cover !important;
 }

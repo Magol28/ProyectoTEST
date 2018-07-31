@@ -16,10 +16,9 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() {
     this.imgags = [
-      'assets/bg.jpg',
-      'assets/car.png',
-      'assets/canberra.jpg',
-      'assets/holi.jpg'
+      'assets/warehouse.jpg',
+      'assets/data.jpg',
+      'assets/information.jpg'
     ];
     this.carouselBanner = {
       grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
@@ -69,8 +68,8 @@ export class SliderComponent implements OnInit {
 
   public carouselBannerLoad() {
     const len = this.carouselBannerItems.length;
-    if (len <= 4) {
-      for (let i = len; i < 4; i++) {
+    if (len <= 3) {
+      for (let i = len; i < 3; i++) {
         this.carouselBannerItems.push(
           this.imgags[i]
         );

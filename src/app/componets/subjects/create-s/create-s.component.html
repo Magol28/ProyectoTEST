@@ -1,0 +1,15 @@
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <mat-card class="card-picture" *ngFor="let picture of pictures">
+    <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+      <span fxFlex="80%">{{picture.nombre}}</span>
+      
+    </mat-card-title>
+    <img mat-card-image [src]="img">
+    <label>Departamento: {{picture.departamento}}</label>
+    <p>
+    <button (click)="click(picture.departamento,picture.nombre,picture.id)" >Agregar Materia</button>
+  </mat-card>
+  
+</div>
+

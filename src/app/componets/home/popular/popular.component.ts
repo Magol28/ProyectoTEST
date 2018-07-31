@@ -18,10 +18,7 @@ export class PopularComponent implements OnInit {
 
   ngOnInit() {
     this.imgags = [
-      'assets/bg.jpg',
-      'assets/car.png',
-      'assets/canberra.jpg',
-      'assets/holi.jpg'
+      'assets/p2.png'
     ];
 
 
@@ -39,15 +36,15 @@ export class PopularComponent implements OnInit {
     this.carouselTileTwoLoad();
   }
   
-  
-  
+  names =['Feranano Solis','Kleber Aguilar','Tatiana Noboa','Edison Lascano','Tataina Gualotuña','Mónica Gomez','Joe Garcia']
 
   public carouselTileTwoLoad() {
     const len = this.carouselTileTwoItems.length;
     if (len <= 30) {
       for (let i = len; i < 10; i++) {
         this.carouselTileTwoItems.push(
-          this.imgags[Math.floor(Math.random() * this.imgags.length)]
+          this.imgags[0]
+     
         );
       }
     }

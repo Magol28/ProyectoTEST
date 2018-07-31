@@ -8,23 +8,26 @@ import {CreateComponent} from './componets/teacher-crud/create/create.component'
 import { AutenticationComponent } from './componets/autentication/autentication.component';
 import { LoginComponent } from './componets/login/login.component';
 import { TeacherprofileComponent } from './componets/teacher/teacherprofile/teacherprofile.component';
-import { CreateSComponent } from './componets/Subjects/createsu/create-s.component';
+import { CreateSComponent } from './componets/Subjects/create-s/create-s.component';
 import { ProfileTeacherComponent } from './componets/search/profile-teacher/profile-teacher.component';
-
+import {AuthorizatedGuard} from "./guards/authorizated";
+import { CommentariesComponent } from './componets/commentaries/commentaries.component';
+import { GridTeachersComponent } from './componets/search/grid-teachers/grid-teachers.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent},
   
   
   {
     path: 'Teacher',
     component: ProfileTeacherComponent,
   },
-  {path:'Teacher/:profesor',component:SearchComponent},
-  { path: 'CreateT',   component: CreateComponent }  ,
-  {path:'Subjects/:id/:name',component:TeacherprofileComponent},
+  {path:'Teacher/:profesor',component:GridTeachersComponent},
+  { path: 'CreateT',   component: CreateComponent}  ,
+  {path:'Subjects/:id/:name/:department',component:TeacherprofileComponent},
   {path:'NewSubject/:id/:name',component:CreateSComponent},
   { path: 'Authentication',   component: AutenticationComponent },  
+  { path: 'Comentaries/:id/:name/:department/:idma',   component: CommentariesComponent }, 
   { path: 'Login',   component: LoginComponent },
   {path:'',redirectTo:"home",pathMatch:"full"},
   {path:'**',redirectTo:"home"},
@@ -33,7 +36,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes),
-    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
+    RouterModule.forRoot(routes)],
   
   exports: [RouterModule]
 })

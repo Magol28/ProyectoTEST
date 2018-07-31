@@ -17,7 +17,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class ProfileTeacherComponent implements OnInit {
   profesorBuscado ;
   id="";
-  img='https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg';
+  img='http://media.caferz.com/thumbnails/users/default-avatar.png';
   private serviceurl="http://10.9.102.146:2096/profeshor/";
   prueba:any;
   pictures 
@@ -50,7 +50,7 @@ export class ProfileTeacherComponent implements OnInit {
       
         data=>{
          this.pictures= data.profesores.profesor;          
-         
+         console.log(this.pictures)
         },
         err=>{
           console.log(err);
@@ -61,11 +61,11 @@ export class ProfileTeacherComponent implements OnInit {
      
   
   }
-  click(id,name){
+  click(id,name,departamento){
     this.id=id;
     console.log(id)
     console.log(name)
-    this.router.navigate(['/Subjects', this.id,name]);
+    this.router.navigate(['/Subjects', this.id,name,departamento]);
   }
 
 

@@ -19,41 +19,73 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./create-s.component.css']
 })
 export class CreateSComponent implements OnInit {
+  profesorBuscado ;
+  departamento;
+  id="";
+  img='http://media.caferz.com/thumbnails/users/default-avatar.png';
+  private serviceurl="http://10.9.102.146:2096/profeshor/";
+  prueba:any;
+  pictures 
+  constructor(private route: ActivatedRoute,private http:HttpClient,private router: Router) {  }
 
-  profesorBuscado
-  id
-  constructor(private route: ActivatedRoute,private http:HttpClient,private router: Router) { }
-  Nombre:string;
-  sub
-  Departamento:string;
+   sub;
+   getData ():Observable<any>
+   {
+
+     var ordeJson = this.http.get('http://10.9.102.146:2096/materias').map(
+
+          
+       (res: Response) => res     
+       
+    
+      )
+       .catch(error => {
+         return Observable.throw(error.json)
+       });
+ 
+ 
+     return ordeJson;
+   }
+
+
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.profesorBuscado = params['name'];
-    this.id= params['id']
+    this.profesorBuscado = params['name'];
+    this.departamento=params['department'];
+    this.id= params['id'];
+    this.getData().subscribe(
+      
+      data=>{
+       
+       
+        this.pictures= data.materias.materia;          
+       
+      },
+      err=>{
+        console.log(err);
+        
+      }
+      
+    );
    })
-  }
-  name(event: any) { 
-    this.Nombre= event.target.value ;
-  }
-  department(event: any) { 
-    this.Departamento = event.target.value ;
-  }
-  onKey(event: any) { 
-   
   
+     
+     
+  
+  }
+  click(id,name){
+
     var obj= new Teacher();
-    obj.nombre=this.Nombre;
-    obj.departamento=this.Departamento;
+    obj.nombre=name;
+    obj.departamento=id;
     
     var  message= JSON.stringify(obj);
-    console.log(message)
-  console.log(this.id)
-  console.log(this.profesorBuscado)  
+
     this.postData(message,this.id).subscribe(
       
       data=>{
         
-        this.router.navigate(['/Subjects',this.id,this.profesorBuscado]);
+        this.router.navigate(['/Subjects',this.id,name,id]);
     
       },
       err=>{
@@ -68,6 +100,7 @@ export class CreateSComponent implements OnInit {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
   const options = new RequestOptions({ headers: headers });
     console.log(data);
+    console.log(id);
     var ordeJson = this.http.post('http://10.9.102.146:2096/profeshor/'+id+"/materias",data,{ headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).map(
 
          
@@ -82,4 +115,7 @@ export class CreateSComponent implements OnInit {
 
     return ordeJson;
   }
+
+
+
 }

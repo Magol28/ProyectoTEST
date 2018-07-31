@@ -1,0 +1,38 @@
+h1 {
+    color: red;
+    }
+    
+h2 {
+    color: blue;
+    text-align: center;
+}
+
+    table
+    {       
+        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+        font-size: 24px;    
+        margin: 45px;     
+        width:90%; 
+        text-align: center;    
+        line-height: 1.4em;
+        border-color: #039;       
+        border-collapse: separate;        
+        }
+
+    img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+    }
+    
+    tr {    
+        padding: 15px;     
+        background: #e8edff;     
+        border-bottom: 1px solid #fff;
+        border-radius: 5px;
+        color: #669;    
+         }
+    
+    tr:hover td { 
+        background: #d0dafd; 
+        color: #339; }
