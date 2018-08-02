@@ -34,17 +34,15 @@ export class TeacherprofileComponent implements OnInit {
     var ordeJson = this.http.get("http://10.9.102.146:2096/analisis/profesor/"+id+"/evaluacion").map(
 
         
-      (res: Response) =>{ res; console.log('hola');
+      (res: Response) =>{ res; 
        return res;
       }
    
      )
       .catch(error => {    
-        console.log('hola2')
         return Observable.throw(error.json)
       });
 
-      console.log('test')
     return ordeJson;
   }
   getData (name:string):Observable<any>
@@ -63,7 +61,6 @@ export class TeacherprofileComponent implements OnInit {
       });
 
 
-      console.log(ordeJson)
     return ordeJson;
   }
   ngOnInit() {
@@ -89,21 +86,17 @@ export class TeacherprofileComponent implements OnInit {
    });
   }
   comentarios(id,name,department){
-    console.log(id);
-    console.log(name);
-    console.log(department);
-    console.log(this.id);
+   
     
     this.router.navigate(['/Comentaries', this.id,this.profesorBuscado,name,id]);
   }
   click(){
-    this.router.navigate(['/NewSubject',this.id,this.departamento]);
+    this.router.navigate(['/NewSubject',this.id,this.profesorBuscado,this.departamento]);
   }
   
 
   setpuntuation(point)
   {
-    console.log(point)
     if(point!=null){
       
      if(point>=0){

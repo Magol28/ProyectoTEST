@@ -24,7 +24,7 @@ export class SliderComponent implements OnInit {
       grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
       slide: 4,
       speed: 500,
-      interval: 5000,
+      interval: 1000,
       point: {
         visible: true,
         pointStyles: `

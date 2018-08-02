@@ -50,6 +50,7 @@ export class CreateSComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
+      console.log(this.profesorBuscado = params['name']);
     this.profesorBuscado = params['name'];
     this.departamento=params['department'];
     this.id= params['id'];
@@ -85,7 +86,7 @@ export class CreateSComponent implements OnInit {
       
       data=>{
         
-        this.router.navigate(['/Subjects',this.id,name,id]);
+        this.router.navigate(['/Subjects',this.id,this.profesorBuscado ,id]);
     
       },
       err=>{

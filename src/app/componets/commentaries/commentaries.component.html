@@ -19,18 +19,18 @@
     {{ title }}
   </h1>
 </div>
-
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
 <div align=center>
   <table id="tabla2" border="2">
     <tr>
         <td colspan="2">ESCRIBE TU OPINION</td>
     </tr>      
     <tr>
-      <th colspan="2"><textarea name="coment" cols="150" rows="5" #titleInput ></textarea></th>
+      <th  colspan="2"><textarea name="coment" cols="150" rows="5" formControlName="messageinput" ></textarea></th>
     </tr>
     <tr>
-      
-      <th colspan="2"><input type="button" name="enviar"(click)=click(titleInput.value) value="ENVIAR"></th>
+      <button type="submit">Submit</button>
+     <!-- <th colspan="2"><input type="submit" name="enviar"(click)=click(titleInput.value) value="ENVIAR"></th>-->
     </tr>
     <tr colspan="2">
       <td>COMENTARIO</td>
@@ -45,3 +45,4 @@
   </table>
 
 </div>
+</form>

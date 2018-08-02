@@ -9,6 +9,7 @@ import { HttpHeaders } from '@angular/common/http';
 import {  Headers,  RequestOptions, RequestMethod } from '@angular/http';
 import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn  } from '@angular/forms';
 import { Http, Response } from '@angular/http';
+import { Validators} from '@angular/forms';
 import 'rxjs/add/operator/map';
 
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -19,7 +20,9 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 
 export class CommentariesComponent implements OnInit {
-
+  form = new FormGroup({
+    messageinput: new FormControl('', Validators.minLength(1)),
+  });
   profesorBuscado ;
   departamento;
   img='http://media.caferz.com/thumbnails/users/default-avatar.png';
@@ -123,10 +126,16 @@ export class CommentariesComponent implements OnInit {
     return ordeJson;
 
   }
-  click(data){
-    var obj= new Comentarie();
-    obj.comentario=data;
-    obj.fecha='2018-07-31';
+  onSubmit():void{
+    console.log(this.form.value.messageinput);
+  //  var count = 
+    //if(this.form.value.messageinput)
+   var obj= new Comentarie();
+    obj.comentario=this.form.value.messageinput;
+    var date = new Date();
+    
+    obj.fecha=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDay()+"/"+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+    console.log(obj.fecha)
     obj.user='user1';
 
     var  message= JSON.stringify(obj);
@@ -135,16 +144,25 @@ export class CommentariesComponent implements OnInit {
         this.getComment().subscribe(
           data=>{
             this.data=data.result.comentarios;
+            this.getPuntuation(this.id,this.idma).subscribe(
+        
+              data=>{
+                this.setpuntuation(data.result.promedio_comentario)
+                this.form.setValue({messageinput: ''});;
+              }
+           
+            );
           }
         )
         
       }
     )
-    console.log(message);
+  
   }
   setpuntuation(point)
   {
-    console.log(point)
+ 
+    
     if(point!=null){
       
      if(point>=0){

@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {path:'Teacher/:profesor',component:GridTeachersComponent},
   {path:'Subjects/:id/:name/:department',component:TeacherprofileComponent},
-  {path:'NewSubject/:id/:name',component:CreateSComponent},
+  {path:'NewSubject/:id/:name/:department',component:CreateSComponent},
   { path: 'Comentaries/:id/:name/:department/:idma',   component: CommentariesComponent }, 
   {path:'',redirectTo:"home",pathMatch:"full"},
   {path:'**',redirectTo:"home"},
