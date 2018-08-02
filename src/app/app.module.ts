@@ -5,7 +5,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
  import { HttpModule } from '@angular/http';
 import { HttpClientModule  } from '@angular/common/http';
-import {CoreModule} from "./Core/core";
+
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componets/home/home.component';
@@ -22,14 +22,11 @@ import { FooterComponent } from './componets/home/footer/footer.component';
 import {GridTeachersComponent} from './componets/search/grid-teachers/grid-teachers.component';
 import { ProfileTeacherComponent } from './componets/search/profile-teacher/profile-teacher.component';
 import { TeacherprofileComponent } from './componets/teacher/teacherprofile/teacherprofile.component';
-import { TeacherCrudComponent } from './componets/teacher-crud/teacher-crud.component';
-import { CreateComponent } from './componets/teacher-crud/create/create.component';
-import { AutenticationComponent } from './componets/autentication/autentication.component';
-import { LoginComponent } from './componets/login/login.component';
+
+
 import { SubjectsComponent } from './componets/subjects/subjects.component';
-import { CreateSComponent } from './componets/Subjects/create-s/create-s.component';
-import { TeachercrudComponent } from './componets/teachercrud/teachercrud.component';
-import { CreateteacherComponent } from './componets/teachercrud/createteacher/createteacher.component';
+
+import { CreateSComponent } from './componets/Subjects/creates/creates.component';
 import {CalendarModule} from "angular-calendar";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {environment} from '../environments/environment';
@@ -47,14 +44,8 @@ import {environment} from '../environments/environment';
     GridTeachersComponent,
     ProfileTeacherComponent,
     TeacherprofileComponent,
-    TeacherCrudComponent,
-    CreateComponent,
-    AutenticationComponent,
-    LoginComponent,
     SubjectsComponent,
-    CreateSComponent,
-    TeachercrudComponent,
-    CreateteacherComponent
+    CreateSComponent
   ],
   imports: [
     
@@ -74,7 +65,7 @@ import {environment} from '../environments/environment';
     FormsModule,
     HttpModule,
     BrowserAnimationsModule,
-    CoreModule,
+  
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,

@@ -14,9 +14,9 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
-  selector: 'app-create-s',
-  templateUrl: './create-s.component.html',
-  styleUrls: ['./create-s.component.css']
+  selector: 'app-creates',
+  templateUrl: './creates.component.html',
+  styleUrls: ['./creates.component.css']
 })
 export class CreateSComponent implements OnInit {
   profesorBuscado ;
