@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {Comentarie} from '../../Class/Comentarie'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { ActivatedRoute } from '@angular/router';
@@ -17,12 +17,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   templateUrl: './commentaries.component.html',
   styleUrls: ['./commentaries.component.css']
 })
-export class Comentarie{
-  public fecha:string;
-  public user:string;
-  public comentario:string;
 
-}
 export class CommentariesComponent implements OnInit {
 
   profesorBuscado ;
@@ -42,9 +37,7 @@ export class CommentariesComponent implements OnInit {
   text="";
   
 
-  data= [{_id:"5b47c46c6975b507b59370fa",nombre:"Redes II",departamento:"Sistemas"},{_id:"5b47c8b36975b507b59370fb",nombre:"Redes I",departamento:"Sistemas"},
-  {_id:"5b47cc076975b507b59370fc",nombre:"Cloud",departamento:"Sistemas"},{_id:"5b47db536975b507b59370fe",nombre:"Sistemas operativos II",departamento:"Sistemas"}];
-
+  data;
   ngOnInit() {
     
     this.sub = this.route.params.subscribe(params => {
