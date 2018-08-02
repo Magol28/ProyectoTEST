@@ -10,13 +10,19 @@ import {  Headers,  RequestOptions, RequestMethod } from '@angular/http';
 import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn  } from '@angular/forms';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {Comentarie} from '../../Class/comentarie'
+
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-commentaries',
   templateUrl: './commentaries.component.html',
   styleUrls: ['./commentaries.component.css']
 })
+export class Comentarie{
+  public fecha:string;
+  public user:string;
+  public comentario:string;
+
+}
 export class CommentariesComponent implements OnInit {
 
   profesorBuscado ;
