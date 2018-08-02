@@ -26,7 +26,7 @@ import { TeacherprofileComponent } from './componets/teacher/teacherprofile/teac
 
 import { SubjectsComponent } from './componets/subjects/subjects.component';
 
-import { CreateSComponent } from './componets/Subjects/creates/creates.component';
+import { CreateSComponent } from './componets/subjects/creates/creates.component';
 import {CalendarModule} from "angular-calendar";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {environment} from '../environments/environment';
