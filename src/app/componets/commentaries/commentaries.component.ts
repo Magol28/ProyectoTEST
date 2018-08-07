@@ -60,6 +60,7 @@ export class CommentariesComponent implements OnInit {
  });
   this.getComment().subscribe(
     data=>{
+      console.log(data.result.comentarios);
       this.data=data.result.comentarios;
     }
   )
@@ -134,7 +135,7 @@ export class CommentariesComponent implements OnInit {
     obj.comentario=this.form.value.messageinput;
     var date = new Date();
     
-    obj.fecha=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDay()+"/"+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
+    obj.fecha=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDay()+"  "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+"";
     console.log(obj.fecha)
     obj.user='user1';
 
