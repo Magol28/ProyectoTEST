@@ -23,7 +23,7 @@ import {GridTeachersComponent} from './componets/search/grid-teachers/grid-teach
 import { ProfileTeacherComponent } from './componets/search/profile-teacher/profile-teacher.component';
 import { TeacherprofileComponent } from './componets/teacher/teacherprofile/teacherprofile.component';
 
-
+import {HashLocationStrategy,LocationStrategy} from '@angular/common';
 import { SubjectsComponent } from './componets/subjects/subjects.component';
 
 import { CreateSComponent } from './componets/subjects/creates/creates.component';
@@ -73,7 +73,7 @@ import {environment} from '../environments/environment';
     CalendarModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [{provide:LocationStrategy,useClass:HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
