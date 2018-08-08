@@ -11,7 +11,7 @@ import { CommentariesComponent } from './componets/commentaries/commentaries.com
 import { GridTeachersComponent } from './componets/search/grid-teachers/grid-teachers.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent},
+  { path: '', component: HomeComponent},
   {
     path: 'Teacher',
     component: ProfileTeacherComponent,
@@ -20,8 +20,8 @@ const routes: Routes = [
   {path:'Subjects/:id/:name/:department',component:TeacherprofileComponent},
   {path:'NewSubject/:id/:name/:department',component:CreateSComponent},
   { path: 'Comentaries/:id/:name/:department/:idma',   component: CommentariesComponent }, 
-  {path:'',redirectTo:"home",pathMatch:"full"},
-  {path:'**',redirectTo:"home"},
+  {path:'',redirectTo:"",pathMatch:"full"},
+  {path:'**',redirectTo:""},
   
 ];
 
