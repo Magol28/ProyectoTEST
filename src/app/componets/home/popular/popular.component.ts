@@ -41,7 +41,7 @@ export class PopularComponent implements OnInit {
   public carouselTileTwoLoad() {
     const len = this.carouselTileTwoItems.length;
     if (len <= 30) {
-      for (let i = len; i < 10; i++) {
+      for (let i = len; i < 7; i++) {
         this.carouselTileTwoItems.push(
           this.imgags[0]
      

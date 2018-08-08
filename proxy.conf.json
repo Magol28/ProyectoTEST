@@ -1,0 +1,7 @@
+{
+  "http://10.9.102.146:2096*": {
+    "target": "http://10.9.102.146:2096",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
