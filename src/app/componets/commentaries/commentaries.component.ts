@@ -21,7 +21,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export class CommentariesComponent implements OnInit {
   form = new FormGroup({
-    messageinput: new FormControl('', Validators.minLength(1)),
+    messageinput: new FormControl('', Validators.minLength(4)),
   });
   profesorBuscado ;
   departamento;
@@ -60,7 +60,6 @@ export class CommentariesComponent implements OnInit {
  });
   this.getComment().subscribe(
     data=>{
-      console.log(data.result.comentarios);
       this.data=data.result.comentarios;
     }
   )
@@ -96,7 +95,6 @@ export class CommentariesComponent implements OnInit {
   {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
   const options = new RequestOptions({ headers: headers });
-    console.log(data);
     var ordeJson = this.http.post('http://10.9.102.146:2096/profeshor/'+this.id+'/materias/'+this.idma+'/comentarios',data,{ headers: new HttpHeaders({ 'Content-Type': 'application/json' }) }).map(
 
          
@@ -128,15 +126,16 @@ export class CommentariesComponent implements OnInit {
 
   }
   onSubmit():void{
-    console.log(this.form.value.messageinput);
-  //  var count = 
-    //if(this.form.value.messageinput)
+    var uname = new String(this.form.value.messageinput) 
+    let flat: boolean =(uname.length==0)
+if(!flat){
+  
    var obj= new Comentarie();
     obj.comentario=this.form.value.messageinput;
     var date = new Date();
     
     obj.fecha=date.getFullYear()+"-"+date.getMonth()+"-"+date.getDay()+"  "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()+"";
-    console.log(obj.fecha)
+
     obj.user='user1';
 
     var  message= JSON.stringify(obj);
@@ -158,7 +157,10 @@ export class CommentariesComponent implements OnInit {
         
       }
     )
-  
+  }
+  else{
+    alert('No esta permitido cometarios vacios')
+  }
   }
   setpuntuation(point)
   {

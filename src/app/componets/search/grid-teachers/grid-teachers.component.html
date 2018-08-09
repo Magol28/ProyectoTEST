@@ -6,10 +6,10 @@
       <span fxFlex="90%">{{picture.nombre}}</span>
       
     </mat-card-title>
-    <img mat-card-image [src]="img">
+    <img mat-card-image [src]="img" (click)="click(picture._id,picture.nombre,picture.departamento)">
     <label>Departamento: {{picture.departamento}}</label>
     <p>
-    <button (click)="click(picture._id,picture.nombre,picture.departamento)" >Ver mas</button>
+   
   </mat-card>
   
 </div>

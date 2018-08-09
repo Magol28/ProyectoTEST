@@ -3,7 +3,7 @@
 <div align=center>
   <table id="tabla1">
     <tr> 
-      <td rowspan="2"><img src="{{img}}" ></td>
+      <td rowspan="2"><img src="{{img1}}" ></td>
       <td>{{profesorBuscado}}</td>
       <td> <img  mat-card [src]="img2"alt="100" height="100"> </td>
     </tr>
@@ -14,16 +14,22 @@
   </table>
 
 </div>
+<!--
+<div >
+  <input type="text" style="margin:0px auto; display:block;" placeholder="materia" (keyup.enter) = " onKey($event)" />
+</div>
+
+-->
 <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
   <mat-card class="card-picture" *ngFor="let picture of pictures">
     <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
       <span fxFlex="80%">Materia:{{picture.nombre}}</span>
     </mat-card-title>
-    <img mat-card-image [src]="img">
+    <img mat-card-image [src]="img" (click)="comentarios(picture._id,picture.nombre,picture.departamento)">
     
     <label>Departamento: {{picture.departamento}}</label>
     <br>
-    <button (click)="comentarios(picture._id,picture.nombre,picture.departamento)" >Ver mas</button>
+   <!-- <button (click)="comentarios(picture._id,picture.nombre,picture.departamento)" >Ver mas</button>-->
   </mat-card>
 </div>
 

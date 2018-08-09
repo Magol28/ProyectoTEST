@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgxCarousel } from 'ngx-carousel';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-popular',
   templateUrl: './popular.component.html',
@@ -14,7 +14,7 @@ export class PopularComponent implements OnInit {
  
   public carouselTileTwoItems: Array<any> = [];
   public carouselTileTwo: NgxCarousel;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.imgags = [
@@ -36,8 +36,8 @@ export class PopularComponent implements OnInit {
     this.carouselTileTwoLoad();
   }
   
-  names =['Feranano Solis','Kleber Aguilar','Tatiana Noboa','Edison Lascano','Tataina Gualotuña','Mónica Gomez','Joe Garcia']
-
+  names =['Diego Marcillo ','Geovanni Ninahualpa','Germán Ñacato','Mario Ron','Klever Aguilar','Mauricio Campaña','Gilma Toaza']
+  
   public carouselTileTwoLoad() {
     const len = this.carouselTileTwoItems.length;
     if (len <= 30) {
@@ -48,6 +48,10 @@ export class PopularComponent implements OnInit {
         );
       }
     }
+  }
+
+  click(event){
+    this.router.navigate(['/Teacher', event]);
   }
 }
 

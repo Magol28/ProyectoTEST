@@ -20,8 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "coment.scss",
-        "../node_modules/angular-calendar/dist/css/angular-calendar.css"
+        "coment.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

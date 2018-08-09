@@ -1,7 +1,7 @@
 <div class="container">
 
-  <ngx-carousel [inputs]="carouselTileTwo" (carouselLoad)="carouselTileTwoLoad()">
-      <ngx-tile NgxCarouselItem *ngFor="let tile of carouselTileTwoItems; let i = index;">
+  <ngx-carousel [inputs]="carouselTileTwo" (carouselLoad)="carouselTileTwoLoad()" >
+      <ngx-tile NgxCarouselItem *ngFor="let tile of carouselTileTwoItems; let i = index;"(click)="click(names[i])">
           <div class="wBg">
               <div class="tile" [style.background]="'url(' + tile + ')'">
                  

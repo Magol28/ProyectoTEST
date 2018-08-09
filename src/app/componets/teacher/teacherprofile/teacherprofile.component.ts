@@ -13,7 +13,8 @@ export class TeacherprofileComponent implements OnInit {
 
   profesorBuscado ;
   departamento;
-  img='http://media.caferz.com/thumbnails/users/default-avatar.png';
+  img='http://www.uasb.edu.ec/UserFiles/385/Image/cuaderno.png';
+  img1='http://media.caferz.com/thumbnails/users/default-avatar.png';
   private serviceurl="http://127.0.0.1:8000/";
   pictures 
   id
@@ -30,7 +31,6 @@ export class TeacherprofileComponent implements OnInit {
 
   getPuntuation(id):Observable<any>{
  
-    console.log("10.9.102.146:2096/analisis/profesor/"+id+"/evaluacion");
     var ordeJson = this.http.get("http://10.9.102.146:2096/analisis/profesor/"+id+"/evaluacion").map(
 
         
@@ -42,6 +42,44 @@ export class TeacherprofileComponent implements OnInit {
       .catch(error => {    
         return Observable.throw(error.json)
       });
+
+    return ordeJson;
+  }
+
+  onKey(event: any) { 
+    let subject=event.target.value;
+    console.log(subject)
+    this.getDatafilter( this.profesorBuscado,subject).subscribe(
+      
+      data=>{
+       this.pictures= data.listaMaterias;          
+      
+      }
+        
+        );
+      }
+     
+      
+    
+    
+  
+
+
+  getDatafilter (name:string, subject:string):Observable<any>
+  {
+    
+    var ordeJson = this.http.get('http://10.9.102.146:2096/profeshor/'+name+'/materias/'+subject).map(
+
+         
+      (res: Response) => res      
+    
+   
+     )
+      .catch(error => {
+        
+        return Observable.throw(error.json)
+      });
+
 
     return ordeJson;
   }

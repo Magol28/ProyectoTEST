@@ -17,3 +17,41 @@
   }    
   
   
+#menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 2px;
+  overflow: auto;
+  background-color: dimgray;
+
+}
+
+#menu li {
+  float: left;
+}
+
+#menu li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#menu li a:hover {
+  background-color: #111;
+}
+
+#menu .active {
+  background-color: gray;
+}
+
+#menu input
+{
+  
+  float: center;
+  font-size: 30px; ;
+}
+#menu {
+  text-align: center;
+}

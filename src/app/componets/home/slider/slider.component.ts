@@ -16,9 +16,9 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() {
     this.imgags = [
-      'assets/warehouse.jpg',
-      'assets/data.jpg',
-      'assets/information.jpg'
+      'assets/Banner1.png',
+      'assets/banner3.png',
+      'assets/banner2.png',
     ];
     this.carouselBanner = {
       grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },

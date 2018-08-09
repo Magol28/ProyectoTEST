@@ -22,7 +22,7 @@ export class CreateSComponent implements OnInit {
   profesorBuscado ;
   departamento;
   id="";
-  img='http://media.caferz.com/thumbnails/users/default-avatar.png';
+  img='http://www.uasb.edu.ec/UserFiles/385/Image/cuaderno.png';
   private serviceurl="http://10.9.102.146:2096/profeshor/";
   prueba:any;
   pictures 
@@ -118,5 +118,34 @@ export class CreateSComponent implements OnInit {
   }
 
 
+  getDatafilter (name:string, subject:string):Observable<any>
+  {
+    
+    var ordeJson = this.http.get('http://10.9.102.146:2096/materias/'+subject).map(
 
+         
+      (res: Response) => res      
+    
+   
+     )
+      .catch(error => {
+        
+        return Observable.throw(error.json)
+      });
+
+
+    return ordeJson;
+  }
+  onKey(event: any) { 
+    let subject=event.target.value;
+    console.log(subject)
+    this.getDatafilter( this.profesorBuscado,subject).subscribe(
+      
+      data=>{
+       this.pictures= data.listaMaterias;          
+      
+      }
+        
+        );
+      }
 }
